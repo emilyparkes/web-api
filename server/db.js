@@ -1,5 +1,5 @@
 const environment = process.env.NODE_ENV || 'development'
-const config = require('./knexfile')[environment]
+const config = require('../knexfile')[environment]
 const connection = require('knex')(config)
 
 module.exports = {
@@ -16,4 +16,3 @@ function getUser (id, testDb) {
   const db = testDb || connection
   return db('users').where('id', id).first()
 }
-
