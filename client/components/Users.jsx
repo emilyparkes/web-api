@@ -1,16 +1,13 @@
 import React from 'react'
 
-class Users extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  // }
-
-  render () {
-    return (
-      <div>
-      </div>
-    )
-  }
+const UserList = props => {
+  return (
+    <ul>
+      {props.users.map( => {
+     return <li key={users.id}>{users.name}</li>
+      })}
+     </ul>
+  )
 }
 
-export default Users
+export default UserList

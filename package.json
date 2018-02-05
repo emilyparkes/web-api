@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "knex": "knex",
-    "dev": "nodemon index",
+    "dev": "nodemon index & webpack --watch",
     "start": "node index",
     "test": "jest --watchAll"
   },

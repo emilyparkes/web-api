@@ -10,5 +10,6 @@ server.use(bodyParser.json())
 
 // Routes
 server.use('/users', users)
+server.use(express.static('public'))
 
 module.exports = server

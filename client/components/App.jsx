@@ -1,21 +1,36 @@
 import React from 'react'
-import {HashRouter as Router, Route} from 'react-router-dom'
+import request from 'superagent'
 
-import Users from './Users'
+// import {HashRouter as Router, Route} from 'react-router-dom'
+
+// import UserList from './Users'
 
 class App extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  // }
+  constructor (props) {
+    super(props)
+    this.state = {
+      users: []
+    }
+  }
+
+  componentDidMount () {
+    request
+      .get('/users') // the database
+      .then((res) => {
+        this.setState({
+          users: res.body.users
+        })
+      })
+  }
 
   render () {
     return (
-      <Router>
-        <div>
-          <h1>Web API</h1>
-          <Route path='/users' component={Users} />
-        </div>
-      </Router>
+      <div>
+        <h1>Site Users</h1>
+        {this.state.users.map(user => {
+          return <li key={user.id}>{user.name}</li>
+        })}
+      </div>
     )
   }
 }
