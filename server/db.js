@@ -16,3 +16,8 @@ function getUser (id, testDb) {
   const db = testDb || connection
   return db('users').where('id', id).first()
 }
+
+function addUser (testDb) {
+  const db = testDb || connection
+  return db('users').where('id', id).first()
+}
